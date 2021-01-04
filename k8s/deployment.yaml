@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ${API_NAME}-api
+  labels:
+    app: ${API_NAME}-api
+spec:
+  selector:
+    matchLabels:
+      app: ${API_NAME}-api
+  template:
+    metadata:
+      labels:
+        app: ${API_NAME}-api
+    spec:
+      containers:
+      - name: ${API_NAME}-api
+        image: app_image
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            cpu: 10m
